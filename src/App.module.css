@@ -1,0 +1,159 @@
+/* ========================================
+   APP - ESTILOS PRINCIPALES
+   Metodología BEM + CSS Modules
+   ======================================== */
+
+/* Bloque principal: app */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Elemento: container */
+.app__container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Elemento: content */
+.app__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
+}
+
+/* Elemento: contentInner */
+.app__contentInner {
+  flex: 1;
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Elemento: header */
+.app__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.app__header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+}
+
+/* Elemento: title */
+.app__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Elemento: subtitle */
+.app__subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Elemento: tabContent */
+.app__tabContent {
+  animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elemento: footer */
+.app__footer {
+  margin-top: auto;
+  padding-top: var(--space-2xl);
+  text-align: center;
+}
+
+/* Elemento: footerText */
+.app__footerText {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(10px);
+  display: inline-block;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .app__container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .app__contentInner {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .app__header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  .app__title {
+    font-size: 2rem;
+  }
+
+  .app__subtitle {
+    font-size: 1rem;
+  }
+
+  .app__footer {
+    padding-top: var(--space-xl);
+  }
+
+  .app__footerText {
+    font-size: 0.8125rem;
+  }
+}
